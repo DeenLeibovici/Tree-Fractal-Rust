@@ -2,7 +2,46 @@
 Simple application to create tree fractals
 
 ### Compilation instructions (Rust)
+Native
 ```bash
 cargo build
 cargo run
+```
+Web Assembly
+```bash
+rustup target add wasm32-unknown-unknown
+cargo build --target wasm32-unknown-unknown
+```
+
+Then load .wasm file with javascript in an html document and serve the files with http.
+```html
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tree Fractal</title>
+    <style>
+        html,
+        body,
+        canvas {
+            margin: 0px;
+            padding: 0px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            position: absolute;
+            background: black;
+            z-index: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="glcanvas" tabindex='1'></canvas>
+    <!-- Minified and statically hosted version of https://github.com/not-fl3/miniquad/blob/master/native/sapp-wasm/js/gl.js -->
+    <script src="https://not-fl3.github.io/miniquad-samples/gl.js"></script>
+    <script>load("fractal.wasm");</script> <!-- Your compiled wasm file -->
+</body>
+
+</html>
 ```
