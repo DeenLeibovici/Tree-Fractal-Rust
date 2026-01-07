@@ -77,7 +77,7 @@ pub fn mouse_controls(pos : &mut Vec2, start : &mut Vec2, old_pos : &mut Vec2, s
 
         let wheel = mouse_wheel().1;
         if wheel != 0.0{
-            *scale += wheel * 10.0;
+            *scale += wheel;
         }
         
 

@@ -31,7 +31,7 @@ fn immediate_ui(skin: &Skin, angle : &mut f32, ratio : &mut f32, iterations : &m
                 ui::root_ui().label(None, "Ratio");
                 ui::root_ui().slider(2, "[-10 .. 10]", -10f32..10f32, ratio);
 
-                ui::root_ui().label(None, "Angle(rad)");
+                ui::root_ui().label(None, "Iterations");
                 ui::root_ui().slider(3, "[0 .. 20]", 0f32..20f32, iterations);
 
                 if ui::root_ui().button(None, if *disco_toggle { "[x] Disable Disco Mode" } else { "[ ] Enable Disco Mode" }) {
